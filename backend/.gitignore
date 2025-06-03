@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# AI Models (Important! Decide how to handle these)
+# If your models are SMALL (e.g., under 20MB total), you can REMOVE the next two lines
+# to include them in your GitHub repository.
+# If they are LARGE, keep these lines to ignore them, and you'll need to
+# provide download instructions or use Git LFS (more advanced).
+# For now, let's assume you might want to ignore them if they are large.
+# models_ai/*.pt
+# models_ai/*.pth
+
+# IDEs and editors
+.idea/
+.vscode/
+*.DS_Store
+
+# Other
+.env
+output_images_api/

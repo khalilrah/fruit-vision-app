@@ -1,0 +1,121 @@
+
+.site-footer {
+  background-color: var(--primary-color); 
+  color: #e0e0e0; 
+  padding: 30px 5vw; 
+  font-family: 'Montserrat', sans-serif; 
+  font-size :0.9rem  ; 
+  border-top: 1px solid #508856; 
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px; 
+  margin: 0 auto; 
+  gap: 20px; 
+}
+
+.footer-section {
+  display: flex;
+  align-items: center;
+}
+
+/* Section Logo */
+
+.footer-logo-image {
+  height: 35px; 
+  width: auto; 
+  display: block; 
+  
+}
+
+/* Section Copyright et Liens */
+.footer-copyright-links {
+  flex-grow: 1; 
+  justify-content: center; 
+  text-align: center; 
+}
+.footer-copyright-links p {
+  margin: 0;
+  margin-right: 10px;
+}
+.footer-copyright-links .separator {
+  margin: 0 10px;
+}
+.footer-link {
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-link:hover {
+  color: var(--accent-color); 
+}
+
+
+.footer-social-media a {
+  color: var(--text-light); 
+  font-size: 1.3rem; 
+  margin-left: 18px; 
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block; 
+}
+.footer-social-media a:hover {
+  color: var(--accent-color); 
+  transform: translateY(-2px);
+}
+.footer-social-media a:first-child {
+  margin-left: 0;
+}
+
+/* Section Bouton Retour en Haut */
+.footer-scroll-top button {
+  background-color: #508856; 
+  color: var(--text-light);
+  border: none;
+  width: 45px; 
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.3rem; 
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 20px; 
+}
+.footer-scroll-top button:hover {
+  background-color: var(--accent-color);
+  color: var(--text-dark);
+  transform: translateY(-3px);
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; 
+    gap: 25px; 
+  }
+  .footer-copyright-links {
+    order: 1; 
+    flex-direction: column;
+    gap: 5px;
+  }
+  .footer-copyright-links .separator {
+    display: none; 
+  }
+  .footer-logo-section {
+    order: 0; 
+  }
+  .footer-social-media {
+    order: 2; 
+    margin-top: 10px;
+  }
+  .footer-scroll-top {
+    order: 3; 
+    margin-top: 10px;
+    margin-left: 0; 
+  }
+}

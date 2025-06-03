@@ -1,0 +1,127 @@
+/* src/components/ImageUploader.css */
+
+.image-uploader-dropzone {
+  border: 3px dashed var(--accent-color); /* Lime Green/Pistachio dashed border */
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: var(--background-content); /* White background, or a very light tint of page bg */
+  /* background-color: hsl(from var(--background-page) h s 98%); */ /* Example: very light beige */
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-uploader-dropzone:hover,
+.image-uploader-dropzone.focus-visible { /* Added for keyboard focus */
+  border-color: hsl(from var(--accent-color) h s calc(l - 10%)); /* Darker Lime */
+  /* Slightly tinted background on hover to differentiate from plain white sections */
+  background-color: hsl(from var(--background-page) h s 97%); /* Lighter beige than page bg */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(var(--accent-color-rgb), 0.15); /* Lime shadow */
+}
+
+/* State when a valid file is dragged over */
+.image-uploader-dropzone.active { /* isDragActive and not isDragReject */
+  border-color: var(--secondary-color); /* Forest Green variant for valid drag */
+  background-color: rgba(var(--secondary-color-rgb), 0.05); /* Very light Forest Green tint */
+  animation: pulseBorderGreen 1.5s infinite ease-in-out;
+}
+@keyframes pulseBorderGreen { /* This animation is defined in AnalysisPage.css, ensure it's available or redefine */
+  0% { box-shadow: 0 0 0 0 rgba(var(--secondary-color-rgb), 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(var(--secondary-color-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--secondary-color-rgb), 0); }
+}
+
+/* State when a rejected file is dragged over */
+.image-uploader-dropzone.reject { /* isDragReject */
+  border-color: var(--accent-color-strong); /* Terracotta Red for reject */
+  background-color: rgba(var(--accent-color-strong-rgb), 0.05); /* Very light Terracotta tint */
+  animation: shakeErrorSimple 0.5s ease-in-out; /* Defined in AnalysisPage.css or define here */
+}
+@keyframes shakeErrorSimple {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-3px); }
+}
+
+
+.image-uploader-dropzone.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: hsl(from var(--background-page) h s 90%); /* Darker beige for disabled */
+  border-color: hsl(from var(--border-color) h s calc(l - 5%));
+}
+
+.uploader-icon {
+  font-size: 3.8rem;
+  color: var(--accent-color); /* Lime Green/Pistachio icon */
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.image-uploader-dropzone:hover .uploader-icon,
+.image-uploader-dropzone.focus-visible .uploader-icon {
+  transform: scale(1.1) translateY(-5px);
+  color: hsl(from var(--accent-color) h s calc(l - 10%)); /* Darker lime on hover */
+}
+.image-uploader-dropzone.active .uploader-icon { /* Valid drag over */
+  color: var(--secondary-color); /* Forest Green variant */
+}
+.image-uploader-dropzone.reject .uploader-icon { /* Invalid drag over */
+  color: var(--accent-color-strong); /* Terracotta Red */
+}
+
+
+.uploader-text-main {
+  font-size: 1.2rem;
+  color: var(--text-on-light-bg); /* Dark Fern Green */
+  font-weight: 500; /* Slightly less bold than 600 for better balance */
+  margin: 0 0 8px 0;
+}
+
+.browse-link {
+  color: var(--accent-color); /* Lime Green/Pistachio link */
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+.browse-link:hover,
+.browse-link:focus {
+  color: hsl(from var(--accent-color) h s calc(l - 10%)); /* Darker Lime */
+  border-bottom-color: hsl(from var(--accent-color) h s calc(l - 10%));
+  outline: none; /* Remove default focus outline if custom is handled */
+}
+
+.uploader-text-sub { /* Renamed, was .upload-formats */
+  font-size: 0.9rem;
+  color: var(--text-on-light-bg);
+  opacity: 0.7; /* Softer subtext */
+  margin: 0;
+}
+
+.error-message { /* Error message from useDropzone hook or manual validation */
+  color: var(--accent-color-strong); /* Terracotta Red for errors */
+  font-size: 0.9rem;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+/* Click animation */
+.image-uploader-dropzone.upload-clicked, /* Class added via JS on mousedown */
+.image-uploader-dropzone:active { /* Native active state */
+  border-color: hsl(from var(--accent-color) h s calc(l - 10%)); /* Darker Lime */
+  animation: pulseBorderAccentClick 0.5s ease-out;
+}
+@keyframes pulseBorderAccentClick {
+  0% { box-shadow: 0 0 0 0 rgba(var(--accent-color-rgb), 0.5); } /* Lime pulse */
+  70% { box-shadow: 0 0 0 20px rgba(var(--accent-color-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--accent-color-rgb), 0); }
+}
