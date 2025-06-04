@@ -1,0 +1,49 @@
+# General OS/Editor files (apply to the whole project)
+.DS_Store
+Thumbs.db
+*.log
+*.log.*
+.env
+.env.*
+*.local
+
+# IDEs and Editors
+.idea/
+.vscode/
+# If you want to share VS Code extension recommendations, uncomment the next line
+# !.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Python / Backend specific ignores
+# Paths are relative to this .gitignore file (the project root)
+backend/venv/
+backend/.venv/
+backend/ENV/
+backend/env/
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+backend/output_images_api/
+
+
+
+# i wanna  IGNORE them  because the size are large 200MB.
+backend/models_ai/*.pt
+backend/models_ai/*.pth
+
+
+# Node.js / Frontend specific ignores
+# Paths are relative to this .gitignore file (the project root)
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/coverage/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/lerna-debug.log*
