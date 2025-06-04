@@ -354,7 +354,7 @@ fruit-vision-app/
 
 - **Purpose**: Multi-class fruit and vegetable detection
 - **Architecture**: YOLO11m
-- **Classes**: 20+ different produce types
+- **Classes**: 12 different produce types
 - **Performance**: >90% accuracy on test dataset
 
 ### Weight Estimation Models
