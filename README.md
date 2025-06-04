@@ -288,30 +288,60 @@ For complete API documentation, visit: http://localhost:8000/docs
 fruit-vision-app/
 ├── 📁 backend/
 │   ├── 📁 app/
+│   │   ├── 📁 __pycache__/         # Python cache files
+│   │   ├── 📄 __init__.py          # Package initialization
 │   │   ├── 📄 main.py              # FastAPI application entry point
-│   │   ├── 📁 routers/             # API route handlers
-│   │   ├── 📁 services/            # Business logic services
-│   │   ├── 📁 models/              # Pydantic models
-│   │   └── 📁 utils/               # Utility functions
-│   ├── 📁 models_ai/               # AI model files (.pt, .pth)
-│   ├── 📄 requirements.txt         # Python dependencies
-│   └── 📄 Dockerfile               # Backend containerization
+│   │   ├── 📄 models_loader.py     # AI model loading utilities
+│   │   └── 📄 processing.py        # Image processing logic
+│   ├── 📁 models_ai/               # AI model files
+│   │   ├── 📄 best.pt              # YOLO detection model
+│   │   ├── 📄 orange_resnet18_be...# Orange weight estimation model
+│   │   ├── 📄 potato_resnet18_be...# Potato weight estimation model
+│   │   └── 📄 strawberry_resnet18...# Strawberry weight estimation model
+│   ├── 📁 node_modules/            # Node.js dependencies (if any)
+│   ├── 📁 venv/                    # Python virtual environment
+│   ├── 📄 package-lock.json        # Node.js lock file
+│   ├── 📄 package.json             # Node.js dependencies
+│   └── 📄 requirements.txt         # Python dependencies
 ├── 📁 frontend/
+│   ├── 📁 node_modules/            # Node.js dependencies
 │   ├── 📁 public/                  # Static assets
 │   ├── 📁 src/
+│   │   ├── 📁 assets/
+│   │   │   └── 📁 icons/           # Icon assets
 │   │   ├── 📁 components/          # Reusable React components
+│   │   │   ├── 📄 Footer.css       # Footer component styles
+│   │   │   ├── 📄 Footer.tsx       # Footer component
+│   │   │   ├── 📄 ImageUploader.css# Image uploader styles
+│   │   │   ├── 📄 ImageUploader.tsx# Image upload component
+│   │   │   ├── 📄 Navbar.css       # Navigation bar styles
+│   │   │   ├── 📄 Navbar.tsx       # Navigation bar component
+│   │   │   ├── 📄 ResultsDisplay.css# Results display styles
+│   │   │   └── 📄 ResultsDisplay.tsx# Results display component
 │   │   ├── 📁 pages/               # Page components
+│   │   │   ├── 📄 AnalysisPage.css # Analysis page styles
+│   │   │   ├── 📄 AnalysisPage.tsx # Analysis page component
+│   │   │   ├── 📄 CatalogPage.css  # Catalog page styles
+│   │   │   ├── 📄 CatalogPage.tsx  # Catalog page component
+│   │   │   ├── 📄 HistoryPage.tsx  # History page component
+│   │   │   ├── 📄 HomePage.css     # Home page styles
+│   │   │   └── 📄 HomePage.tsx     # Home page component
 │   │   ├── 📁 services/            # API service functions
+│   │   │   └── 📄 api.ts           # API service layer
 │   │   ├── 📁 types/               # TypeScript type definitions
-│   │   ├── 📁 hooks/               # Custom React hooks
-│   │   ├── 📁 utils/               # Utility functions
+│   │   │   ├── 📄 detection.ts     # Detection type definitions
+│   │   │   └── 📄 images.d.ts      # Image type declarations
+│   │   ├── 📄 App.css              # Main app styles
 │   │   ├── 📄 App.tsx              # Main App component
+│   │   ├── 📄 index.css            # Global styles
 │   │   └── 📄 main.tsx             # React entry point
+│   ├── 📄 eslint.config.js         # ESLint configuration
+│   ├── 📄 index.html               # HTML entry point
+│   ├── 📄 package-lock.json        # Node.js lock file
 │   ├── 📄 package.json             # Node.js dependencies
-│   ├── 📄 vite.config.ts           # Vite configuration
-│   └── 📄 Dockerfile               # Frontend containerization
+│   ├── 📄 README.md                # Frontend documentation
+│   └── 📄 vite.config.ts           # Vite configuration
 ├── 📁 docs/                        # Documentation and images
-├── 📄 docker-compose.yml           # Multi-container setup
 ├── 📄 README.md                    # Project documentation
 └── 📄 LICENSE                      # MIT License
 ```
